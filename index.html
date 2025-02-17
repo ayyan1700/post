@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f4f4f4;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+      }
+      
+      .main {
+         background-color: #fff;
+         padding: 20px;
+         border-radius: 8px;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         width: 80%;
+         max-width: 500px;
+         margin: 30px auto;
+      }
+
+      label {
+         font-weight: bold;
+         display: block;
+         margin: 10px 0 5px;
+      }
+
+      input[type="text"], .description {
+         width: 100%;
+         padding: 10px;
+         margin-bottom: 20px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         font-size: 14px;
+         box-sizing: border-box;
+      }
+
+      .description {
+         height: 150px; /* Enough height for long descriptions */
+         resize: vertical; /* Allow user to resize vertically */
+      }
+
+      button {
+         padding: 10px 20px;
+         background-color: #007BFF;
+         color: white;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         font-size: 16px;
+      }
+
+      button:hover {
+         background-color: #0056b3;
+      }
+
+      /* Styling for result box */
+      .result {
+         margin-top: 20px;
+         padding: 15px;
+         background-color: #e9ecef;
+         border-radius: 4px;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         display: none; /* Hide result box initially */
+      }
+
+      .result h2 {
+         margin: 0 0 10px;
+      }
+
+      .result p {
+         font-size: 14px;
+         white-space: pre-wrap; /* Preserve spaces and line breaks */
+         word-wrap: break-word; /* Break long words to fit */
+      }
+   </style>
+</head>
+<body>
+   <div class="main">
+      <label for="title">Title:</label>
+      <input type="text" id="title" class="title">
+      <label for="description">Description:</label>
+      <textarea id="description" class="description"></textarea>
+      <button type="submit" onclick="show()">Submit</button>
+      <div class="result"></div>
+   </div>
+
+   <script>
+      const title = document.querySelector('.title');
+      const description = document.querySelector('.description');
+      const result = document.querySelector('.result');
+      
+      function show() {
+          const titleValue = title.value;
+          const descriptionValue = description.value;
+          result.innerHTML = `<h2>Title: ${titleValue}</h2><p>Description: ${descriptionValue}</p>`;
+          result.style.display = "block"; 
+      }
+   </script>
+</body>
+</html>
